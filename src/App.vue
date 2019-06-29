@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    fdsa
     <t-table :columns="columns" border :data="data"></t-table>
+    <t-dialog ref="dialog"></t-dialog>
   </div>
 </template>
 
@@ -26,6 +28,13 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    this.$refs.dialog({
+      title: '添加',
+      widht: '500px',
+      component: () => import('./add.vue')
+    })
   }
 }
 </script>

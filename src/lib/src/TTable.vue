@@ -99,7 +99,7 @@
             <template v-if="item.type == 'img'">
               <el-tooltip v-if="scope.row[item.value]" placement="right" effect="light" :open-delay="2">
                 <div slot="content" v-if="scope.row[item.value]">
-                  <img :src="scope.row[item.value] || ''" width="auto" :height="item.bulkyHeight || 180">
+                  <img :src="scope.row[item.value] || ''" width="auto" :height="item.bulkyHeight || 180" />
                 </div>
                 <el-image
                   :style="item.style || {width: '62px',height: '52px'}"
@@ -162,7 +162,6 @@
 </template>
 
 <script>
-const GLOBAL = window
 const custorm = {
   props: ['item', 'scope'],
   render(h) {
