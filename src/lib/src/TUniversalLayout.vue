@@ -157,10 +157,9 @@ export default {
 .margin10 {
   margin-right: 10px;
 }
-$bgcolor: rgba(242, 242, 242, 1);
 
 .UniversalLayout {
-  @extend .pad10;
+  padding: 10px;
   position: absolute;
   // box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   top: 0;
@@ -170,8 +169,8 @@ $bgcolor: rgba(242, 242, 242, 1);
   overflow-y: auto;
   padding: 16px;
   .search {
-    @extend .pad10;
-    background: $bgcolor;
+    padding: 10px;
+    background: rgba(242, 242, 242, 1);
     border-radius: 5px;
   }
   .allbtn {
