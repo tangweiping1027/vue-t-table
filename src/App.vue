@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <t-table :columns="columns" border :data="data"></t-table>
+    <t-dialog ref="dialog"></t-dialog>
   </div>
 </template>
 
@@ -17,6 +18,23 @@ export default {
         {
           label: 'bbb',
           value: 'bbb'
+        },
+        {
+          label: '操作',
+          btns: [
+            {
+              name: '编辑',
+              icon: 'el-icon-edit-outline',
+              fn(val) {
+                this.$refs.dialog.$dialog({
+                  title: '添加',
+                  width: '500px',
+                  visible: true
+                  // component: () => import('./lib/src/aa')
+                })
+              }
+            }
+          ]
         }
       ],
       data: [
@@ -44,7 +62,6 @@ h1,
 h2 {
   font-weight: normal;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
