@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   entry: './src/main.js',
   // entry: './src/lib/index.js',
@@ -40,12 +41,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader'
       }
+    ]
+  },
+  plugins: [new VueLoaderPlugin()],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        test: /\.js(\?.*)?$/i
+      })
     ]
   },
   resolve: {
